@@ -146,8 +146,4 @@ runs:
           done
 
           docker manifest push ${{ inputs.atrust_image_name }}:$(to-tag $prefix $vncless)
-
-#          for arch in ${{ inputs.archs }}; do
-#            [ ! -e build-args/atrust-$arch.txt ] || delete_tag ${{ inputs.atrust_image_name }} $(to-tag $prefix $vncless $arch)
-#          done
         done
