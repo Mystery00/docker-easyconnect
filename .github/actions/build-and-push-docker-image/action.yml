@@ -10,11 +10,11 @@ inputs:
   ec_image_name:
     description: 'Name of the easyconnect image to push'
     required: true
-    default: 'hagb/docker-easyconnect'
+    default: 'mystery00/docker-easyconnect'
   atrust_image_name:
     description: 'Name of the atrust image to push'
     required: true
-    default: 'hagb/docker-atrust'
+    default: 'mystery00/docker-atrust'
   archs:
     description: 'Archs of the easyconnect image to push'
     required: true
@@ -147,7 +147,7 @@ runs:
 
           docker manifest push ${{ inputs.atrust_image_name }}:$(to-tag $prefix $vncless)
 
-          for arch in ${{ inputs.archs }}; do
-            [ ! -e build-args/atrust-$arch.txt ] || delete_tag ${{ inputs.atrust_image_name }} $(to-tag $prefix $vncless $arch)
-          done
+#          for arch in ${{ inputs.archs }}; do
+#            [ ! -e build-args/atrust-$arch.txt ] || delete_tag ${{ inputs.atrust_image_name }} $(to-tag $prefix $vncless $arch)
+#          done
         done
